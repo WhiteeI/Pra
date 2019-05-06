@@ -16,7 +16,7 @@ long long* Fibonacci(size_t n) {
 
 int main() {
 	long long* fib = Fibonacci(10);
-	printf("%d",fib[9]);
+	printf("%d\n",fib[9]);
 	free(fib);
 	system("pause");
 	return 0;
