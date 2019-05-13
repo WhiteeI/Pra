@@ -160,8 +160,11 @@ void SListClear(PSList s) {
 //Ïú»ÙÁ´±í
 void SListDestory(PSList s) {
 	assert(s);
-	free(s);
-	s = NULL;
+	PNode PCur = s->head;
+	while (PCur) {
+		free(PCur);
+		PCur = PCur->pNext;
+	}
 }
 
 
