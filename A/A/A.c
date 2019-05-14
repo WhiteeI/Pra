@@ -14,10 +14,43 @@ long long* Fibonacci(size_t n) {
 	return fibarray;
 }
 
+long long add(int n) {
+	int array[100];
+	array[1] = 1;
+	array[2] = 2;
+	int i = 3;
+	/*if (n == 1) {
+		return 1;
+	}
+	if (n == 2) {
+		return 2;
+	}*/
+	while (i <= n) {
+		array[i] = array[i - 1] + array[i - 2];
+		++i;
+	}
+	return array[n];
+}
+long jumpStepByFor(int n){
+	int result[] = { 0, 1, 2 };
+	if (n < 3){
+		return result[n];
+	}
+	long jumpCount1 = 1;
+	long jumpCount2 = 2;
+	long jumpCountn = 0;
+	for (int i = 3; i <= n; ++i) {
+		jumpCountn = jumpCount1 + jumpCount2;
+		jumpCount1 = jumpCount2;
+		jumpCount2 = jumpCountn;
+	}
+	return jumpCountn;
+}
 int main() {
-	long long* fib = Fibonacci(10);
-	printf("%d\n",fib[9]);
-	free(fib);
+	long long a = add(43);
+	long b=jumpStepByFor(46);
+	printf("%lld\n", a);
+	printf("%ld\n", b);
 	system("pause");
 	return 0;
 }
