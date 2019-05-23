@@ -81,83 +81,65 @@
 //	}
 //}
 
-typedef struct Node {
-	int val;
-	struct Node* next;
-	struct Node* random;
-}Node;
-Node* BuyNode(int val) {
-	Node* NewNode = (Node*)malloc(sizeof(Node));
-	NewNode->val = val;
-	NewNode->next = NULL;
-	NewNode->random = NULL;
-	return NewNode;
-}
-void NodePushInsert(Node** PNode, int val) {
-	Node* NewNode = BuyNode(val);
-	NewNode->next = (*PNode)->next;
-	(*PNode)->next = NewNode;
-}
-Node* copyRandomList(Node* head) {
-	if (head == NULL) {
-		return head;
-	}
-	Node* PCur = head;
-	while (PCur) {
-		Node* P = PCur;
-		PCur = PCur->next;
-		NodePushInsert(&P, P->val);
-	}
-	PCur = head;
-	while (PCur&&PCur->next) {
-		if (PCur->random == NULL) {
-			PCur->next->random = PCur->random;
-		}
-		else {
-			PCur->next->random = PCur->random->next;
-		}
-		PCur = PCur->next->next;
-	}
-	head = head->next;
-	PCur = head;
-	while (PCur&&PCur->next) {
-		PCur->next = PCur->next->next;
-		PCur = PCur->next;
-	}
-	PCur->next = NULL;
-	return head;
-}
+//typedef struct Node {
+//	int val;
+//	struct Node* next;
+//	struct Node* random;
+//}Node;/*
+//Node* BuyNode(int val) {
+//	Node* NewNode = (Node*)malloc(sizeof(Node));
+//	NewNode->val = val;
+//	NewNode->next = NULL;
+//	NewNode->random = NULL;
+//	return NewNode;
+//}
+//void NodePushInsert(Node** PNode, int val) {
+//	Node* NewNode = BuyNode(val);
+//	NewNode->next = (*PNode)->next;
+//	(*PNode)->next = NewNode;
+//}
+//Node* copyRandomList(Node* head) {
+//	if (head == NULL) {
+//		return head;
+//	}
+//	Node* PCur = head;
+//	while (PCur) {
+//		Node* P = PCur;
+//		PCur = PCur->next;
+//		NodePushInsert(&P, P->val);
+//	}
+//	PCur = head;
+//	while (PCur&&PCur->next) {
+//		if (PCur->random == NULL) {
+//			PCur->next->random = PCur->random;
+//		}
+//		else {
+//			PCur->next->random = PCur->random->next;
+//		}
+//		PCur = PCur->next->next;
+//	}
+//	head = head->next;
+//	PCur = head;
+//	while (PCur&&PCur->next) {
+//		PCur->next = PCur->next->next;
+//		PCur = PCur->next;
+//	}
+//	PCur->next = NULL;
+//	return head;
+//}*/
 
-
+unsigned char password[6];
+void pass() {
+	for (int i = 0; i < 6; ++i) {
+		password[i] = 5;
+	}
+}
 
 
 
 int main() {
-	Node* N1 = BuyNode(1);
-	Node* N2 = BuyNode(2);
-	Node* N3 = BuyNode(3);
-	Node* N4 = BuyNode(4);
-	N1->next = N2;
-	N2->next = N3;
-	N3->next = N4;
-	N4->next = NULL;
-	N1->random = N3;
-	N2->random = N1;
-	N3->random = N3;
-	N4->random = NULL;
-	Node* head = N1;
-	Node* NewHead=copyRandomList(head);
-	Node* PCur = NewHead;
-	while (PCur) {
-		printf("%d ", PCur->val);
-		if (PCur->random == NULL) {
-			printf("NULL\n");
-		}
-		else {
-			printf("%d\n", PCur->random->val);
-		}		
-		PCur = PCur->next;
-	}
+	pass();
+	printf("%d\n", password[3]);
 	system("pause");
 	return 0;
 }
