@@ -127,19 +127,22 @@
 //	PCur->next = NULL;
 //	return head;
 //}*/
-
-unsigned char password[6];
-void pass() {
-	for (int i = 0; i < 6; ++i) {
-		password[i] = 5;
-	}
-}
+//
+//unsigned char password[6];
+//void pass() {
+//	for (int i = 0; i < 6; ++i) {
+//		password[i] = 5;
+//	}
+//}
 
 
 
 int main() {
-	pass();
-	printf("%d\n", password[3]);
+	int d = 1;
+	while (((5 * d) % 200079976) != 1) {
+		++d;
+	}
+	printf("%d\n", d);
 	system("pause");
 	return 0;
 }
