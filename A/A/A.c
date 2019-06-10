@@ -136,13 +136,10 @@
 //}
 
 
-
+#define shex(a,b)
 int main() {
-	int d = 1;
-	while (((5 * d) % 200079976) != 1) {
-		++d;
-	}
-	printf("%d\n", d);
+	int a = 0;
+	int b = 1;
 	system("pause");
 	return 0;
 }
