@@ -111,7 +111,7 @@ static int ztransform(const uint8_t *msg, uint32_t *h)
 int zsha256(const uint8_t *src, uint32_t len, uint32_t *hash)
 {
 	uint8_t *tmp = (uint8_t*)src;
-	uint8_t  cover_data[SHA256_COVER_SIZE];
+	uint8_t  cover_data[SHA256_COVER_SIZE];//128
 	uint32_t cover_size = 0;
 
 	uint32_t i = 0;
@@ -132,14 +132,16 @@ int zsha256(const uint8_t *src, uint32_t len, uint32_t *hash)
 
 	n = len / SHA256_BLOCK_SIZE;
 	m = len % SHA256_BLOCK_SIZE;
-
+//n=0.m=4
 	if (m < 56) {
 		cover_size = SHA256_BLOCK_SIZE;
 	}
 	else {
+		printf("haha");
 		cover_size = SHA256_BLOCK_SIZE * 2;
 	}
-
+	//printf("%d", cover_size);cover_size = 64
+	
 	if (m != 0) {
 		memcpy(cover_data, tmp + (n * SHA256_BLOCK_SIZE), m);
 	}
