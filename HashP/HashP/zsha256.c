@@ -137,7 +137,6 @@ int zsha256(const uint8_t *src, uint32_t len, uint32_t *hash)
 		cover_size = SHA256_BLOCK_SIZE;
 	}
 	else {
-		printf("haha");
 		cover_size = SHA256_BLOCK_SIZE * 2;
 	}
 	//printf("%d", cover_size);cover_size = 64
