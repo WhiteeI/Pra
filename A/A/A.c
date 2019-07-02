@@ -134,12 +134,14 @@
 //		password[i] = 5;
 //	}
 //}
-
-
-#define shex(a,b)
+#if 0
+static int hash(a, b) {
+	return a + b;
+}
+#else
+#define hash(a,b)
+#endif
 int main() {
-	int a = 0;
-	int b = 1;
 	system("pause");
 	return 0;
 }
